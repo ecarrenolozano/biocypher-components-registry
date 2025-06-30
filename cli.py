@@ -1,43 +1,83 @@
-import argparse
 import json
 import os
+import argparse
 
-REGISTRY_FILE = os.path.join("registry_data", "unified_registry.jsonld")
+REGISTRY_DATA_DIR = "registry_data"
+AGGREGATED_FILE = "unified_adapters_metadata.jsonld"
 
 
 def list_adapters():
-    with open(REGISTRY_FILE, "r") as f:
-        registry = json.load(f)
-    for adapter in registry.get("adapters", []):
-        print(f"{adapter.get('name')} - version {adapter.get('version')}")
+    if not os.path.isfile(AGGREGATED_FILE):
+        print(
+            f"Aggregated metadata file '{AGGREGATED_FILE}' not found. Please generate it first."
+        )
+        return
+
+    with open(AGGREGATED_FILE, "r") as f:
+        data = json.load(f)
+        adapters = data.get("@graph", [])
+
+    if not adapters:
+        print("No adapters found in the aggregated metadata.")
+        return
+
+    print("Registered adapters:")
+    for adapter in adapters:
+        name = adapter.get("name", "Unknown")
+        version = adapter.get("version", "Unknown")
+        print(f"- {name} (version: {version})")
 
 
 def inspect_adapter(name):
-    with open(REGISTRY_FILE, "r") as f:
-        registry = json.load(f)
-    for adapter in registry.get("adapters", []):
+    if not os.path.isfile(AGGREGATED_FILE):
+        print(
+            f"Aggregated metadata file '{AGGREGATED_FILE}' not found. Please generate it first."
+        )
+        return
+
+    with open(AGGREGATED_FILE, "r") as f:
+        data = json.load(f)
+        adapters = data.get("@graph", [])
+
+    for adapter in adapters:
         if adapter.get("name") == name:
             print(json.dumps(adapter, indent=2))
             return
-    print(f"Adapter {name} not found in registry.")
+
+    print(f"Adapter '{name}' not found in the registry.")
 
 
-def export_registry():
-    with open(REGISTRY_FILE, "r") as f:
+def export_metadata(output_file):
+    if not os.path.isfile(AGGREGATED_FILE):
+        print(
+            f"Aggregated metadata file '{AGGREGATED_FILE}' not found. Please generate it first."
+        )
+        return
+
+    with open(AGGREGATED_FILE, "r") as f:
         data = json.load(f)
-    print(json.dumps(data, indent=2))
+
+    with open(output_file, "w") as f:
+        json.dump(data, f, indent=2)
+
+    print(f"Exported aggregated metadata to '{output_file}'")
 
 
 def main():
-    parser = argparse.ArgumentParser(description="BioCypher Adapter Registry CLI")
+    parser = argparse.ArgumentParser(description="BioCypher Adapters Registry CLI")
     subparsers = parser.add_subparsers(dest="command")
 
-    subparsers.add_parser("list", help="List all adapters")
+    subparsers.add_parser("list", help="List all registered adapters")
 
-    inspect = subparsers.add_parser("inspect", help="Show metadata for adapter")
-    inspect.add_argument("name", help="Adapter name")
+    inspect_parser = subparsers.add_parser(
+        "inspect", help="Inspect metadata of a specific adapter"
+    )
+    inspect_parser.add_argument("name", help="Name of the adapter to inspect")
 
-    subparsers.add_parser("export", help="Export full registry in Croissant JSON-LD")
+    export_parser = subparsers.add_parser(
+        "export", help="Export aggregated metadata to a file"
+    )
+    export_parser.add_argument("output_file", help="File path to export metadata")
 
     args = parser.parse_args()
 
@@ -46,7 +86,7 @@ def main():
     elif args.command == "inspect":
         inspect_adapter(args.name)
     elif args.command == "export":
-        export_registry()
+        export_metadata(args.output_file)
     else:
         parser.print_help()
 
