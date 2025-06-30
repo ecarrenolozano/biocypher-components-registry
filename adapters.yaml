@@ -1,7 +1,15 @@
+# ----------------------------------
+# ----    BioCypher Adapters    ----
+# ----------------------------------
 adapters:
+  ## Adapter: Dummy Adapter One
   - name: adapter_one
     local_path: ./external_repos/adapter_one
+  
+  ## Adapter: Dummy Adapter Two
   - name: adapter_two
     local_path: ./external_repos/adapter_two
+
+  ## Adapter: Omnipath Secondary Adapter
   - name: omnipath_secondary_adapter
     metadata_url: https://raw.githubusercontent.com/biocypher/omnipath-secondary-adapter/refs/heads/main/croissant.jsonld
