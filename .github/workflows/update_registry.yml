@@ -1,0 +1,40 @@
+name: Update BioCypher Adapter Registry
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+  workflow_dispatch:     # Allows manual triggering
+
+jobs:
+  update-registry:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Fetch adapters metadata
+        run: python scripts/fetch_adapters.py
+
+      - name: Generate unified registry
+        run: python scripts/generate_registry.py
+
+      - name: Commit and push changes if any
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add registry_data/unified_registry.jsonld
+          git diff --cached --quiet || git commit -m "Update unified BioCypher Adapter registry"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
