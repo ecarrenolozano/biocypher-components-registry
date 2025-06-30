@@ -1,1 +1,8 @@
+# Virtual environment
 .venv
+
+# Collected metadata files
+registry_data/*
+
+# Unified Metadata file
+unified_adapters_metadata.jsonld
