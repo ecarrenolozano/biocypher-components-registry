@@ -2,7 +2,7 @@ name: Update BioCypher Adapters Registry
 
 on:
   schedule:
-    - cron: '0 2 * * *'  # Runs daily at 2am UTC; adjust as needed
+    - cron: '0 */2 * * *'  # Runs daily every two hours;
   workflow_dispatch:      # Manual trigger option
 
 jobs:
