@@ -22,36 +22,54 @@
       "github_repo": "https://github.com/edwin/biocypher-gene-transformer"
     },
     {
-      "@context": "https://w3id.org/croissant/v1",
-      "type": "BioCypherAdapter",
-      "name": "omnipath_secondary_adapter",
+      "@context": {
+        "@vocab": "https://schema.org/"
+      },
+      "@type": "Dataset",
+      "name": "BioCypher Omnipath Secondary Adapter",
+      "description": "Adapter that produces a knowledge graph of OmniPath secondary interactions for use with BioCypher.",
+      "url": "https://github.com/biocypher/omnipath-secondary-adapter",
+      "conformsTo": "http://mlcommons.org/croissant/1.0",
       "version": "0.1.0",
-      "description": "Adapter for integrating Omnipath secondary interactions into BioCypher.",
-      "license": "MIT",
-      "authors": [
+      "license": {
+        "@type": "CreativeWork",
+        "name": "MIT License",
+        "url": "https://opensource.org/licenses/MIT"
+      },
+      "creator": [
         {
+          "@type": "Person",
           "name": "Edwin C.",
-          "email": "edwin.carreno@iwr.uni-heidelberg.de",
-          "affiliation": "Saez-Rodriguez Lab"
+          "affiliation": {
+            "@type": "Organization",
+            "name": "Saez\u2011Rodriguez Lab"
+          }
         },
         {
+          "@type": "Person",
           "name": "Matthieu Najm",
-          "email": "matthieu.najm@pasteur.fr",
-          "affiliation": "Institute Pasteur"
+          "affiliation": {
+            "@type": "Organization",
+            "name": "Institut Pasteur"
+          }
         }
       ],
-      "github_repo": "https://github.com/biocypher/omnipath-secondary-adapter",
       "keywords": [
-        "biocypher",
+        "BioCypher",
         "adapter",
-        "omnipath",
+        "OmniPath",
         "secondary interactions"
       ],
-      "homepage": "https://github.com/biocypher/omnipath-secondary-adapter",
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/biocypher/omnipath-secondary-adapter.git"
-      }
+      "distribution": [
+        {
+          "@type": "FileObject",
+          "@id": "repo",
+          "name": "GitHub repository",
+          "description": "Repository containing the BioCypher adapter code.",
+          "contentUrl": "https://github.com/biocypher/omnipath-secondary-adapter",
+          "encodingFormat": "text/html"
+        }
+      ]
     }
   ]
 }
