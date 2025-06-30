@@ -1,0 +1,28 @@
+{
+  "@context": "https://w3id.org/croissant/v1",
+  "type": "BioCypherAdapterRegistry",
+  "adapters": [
+    {
+      "@context": "https://w3id.org/croissant/v1",
+      "type": "BioCypherAdapter",
+      "name": "protein_mapper",
+      "version": "0.5.1",
+      "description": "Maps protein identifiers to BioCypher schema",
+      "license": "BSD-3-Clause",
+      "author": "Edwin",
+      "github_repo": "https://github.com/edwin/biocypher-protein-mapper",
+      "@id": "https://github.com/edwin/biocypher-protein-mapper#protein_mapper-0.5.1"
+    },
+    {
+      "@context": "https://w3id.org/croissant/v1",
+      "type": "BioCypherAdapter",
+      "name": "gene_transformer",
+      "version": "1.0.0",
+      "description": "Transforms gene data into BioCypher nodes",
+      "license": "Apache-2.0",
+      "author": "Edwin",
+      "github_repo": "https://github.com/edwin/biocypher-gene-transformer",
+      "@id": "https://github.com/edwin/biocypher-gene-transformer#gene_transformer-1.0.0"
+    }
+  ]
+}

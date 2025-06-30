@@ -1,0 +1,5 @@
+adapters:
+  - name: adapter_one
+    repo: ./external_repos/adapter_one
+  - name: adapter_two
+    repo: ./external_repos/adapter_two

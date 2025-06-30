@@ -1,0 +1,10 @@
+{
+  "@context": "https://w3id.org/croissant/v1",
+  "type": "BioCypherAdapter",
+  "name": "gene_transformer",
+  "version": "1.0.0",
+  "description": "Transforms gene data into BioCypher nodes",
+  "license": "Apache-2.0",
+  "author": "Edwin",
+  "github_repo": "https://github.com/edwin/biocypher-gene-transformer"
+}
