@@ -23,6 +23,7 @@ def main():
     metadata_list = load_all_metadata()
     aggregated = {
         "@context": {
+            "@language": "en",
             "@vocab": "https://schema.org/",
             "dct": "http://purl.org/dc/terms/",
             "cr": "http://mlcommons.org/croissant/"
