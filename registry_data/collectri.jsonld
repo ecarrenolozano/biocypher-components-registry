@@ -8,7 +8,7 @@
   "name": "example-adapter",
   "description": "Adapter integrating proteomics data from UniProt into a unified ontology model.",
   "version": "1.0.0",
-  "license": "MIT",
+  "license": "https://opensource.org/licenses/MIT",
   "url": "https://github.com/example-org/proteomics-adapter",
   "keywords": ["proteomics", "ontology", "uniprot"],
   "additionalType": "cr:Adapter",

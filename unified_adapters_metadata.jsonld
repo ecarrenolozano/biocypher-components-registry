@@ -22,21 +22,6 @@
     },
     {
       "@context": {
-        "@vocab": "https://schema.org/"
-      },
-      "@type": "Dataset",
-      "name": "protein_mapper",
-      "version": "0.5.1",
-      "description": "Maps protein identifiers to BioCypher schema",
-      "license": "BSD-3-Clause",
-      "creator": {
-        "@type": "Person",
-        "name": "Edwin"
-      },
-      "url": "https://github.com/edwin/biocypher-protein-mapper"
-    },
-    {
-      "@context": {
         "@language": "en",
         "@vocab": "https://schema.org/",
         "cr": "http://mlcommons.org/croissant/"
@@ -45,7 +30,7 @@
       "name": "example-adapter",
       "description": "Adapter integrating proteomics data from UniProt into a unified ontology model.",
       "version": "1.0.0",
-      "license": "MIT",
+      "license": "https://opensource.org/licenses/MIT",
       "url": "https://github.com/example-org/proteomics-adapter",
       "keywords": [
         "proteomics",
@@ -184,6 +169,21 @@
           "encodingFormat": "text/html"
         }
       ]
+    },
+    {
+      "@context": {
+        "@vocab": "https://schema.org/"
+      },
+      "@type": "Dataset",
+      "name": "protein_mapper",
+      "version": "0.5.1",
+      "description": "Maps protein identifiers to BioCypher schema",
+      "license": "BSD-3-Clause",
+      "creator": {
+        "@type": "Person",
+        "name": "Edwin"
+      },
+      "url": "https://github.com/edwin/biocypher-protein-mapper"
     }
   ]
 }
