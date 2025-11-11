@@ -23,21 +23,6 @@
     },
     {
       "@context": {
-        "@vocab": "https://schema.org/"
-      },
-      "@type": "Dataset",
-      "name": "protein_mapper",
-      "version": "0.5.1",
-      "description": "Maps protein identifiers to BioCypher schema",
-      "license": "BSD-3-Clause",
-      "creator": {
-        "@type": "Person",
-        "name": "Edwin"
-      },
-      "url": "https://github.com/edwin/biocypher-protein-mapper"
-    },
-    {
-      "@context": {
         "@language": "en",
         "@vocab": "https://schema.org/",
         "cr": "http://mlcommons.org/croissant/"
@@ -177,6 +162,21 @@
           "encodingFormat": "text/html"
         }
       ]
+    },
+    {
+      "@context": {
+        "@vocab": "https://schema.org/"
+      },
+      "@type": "Dataset",
+      "name": "protein_mapper",
+      "version": "0.5.1",
+      "description": "Maps protein identifiers to BioCypher schema",
+      "license": "BSD-3-Clause",
+      "creator": {
+        "@type": "Person",
+        "name": "Edwin"
+      },
+      "url": "https://github.com/edwin/biocypher-protein-mapper"
     }
   ]
 }
