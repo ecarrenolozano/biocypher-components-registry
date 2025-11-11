@@ -5,52 +5,47 @@
     "cr": "http://mlcommons.org/croissant/"
   },
   "@type": "Dataset",
-  "name": "example-adapter",
-  "description": "Adapter integrating proteomics data from UniProt into a unified ontology model.",
-  "version": "1.0.0",
-  "license": "MIT",
-  "url": "https://github.com/example-org/proteomics-adapter",
-  "keywords": ["proteomics", "ontology", "uniprot"],
+  "name": "Collectri",
+  "description": "Adapter that integrates Collectri data into BioCypher, transforming multi-omics and clinical datasets into standardized nodes and relationships.",
+  "version": "0.0.1",
+  "license": "https://opensource.org/licenses/MIT",
+  "url": "https://github.com/biocypher/collectri",
+  "keywords": ["multi-omics"],
   "additionalType": "cr:Adapter",
   "cr:adapterType": "primary",
   "distribution": [
     {
       "@type": "DataDownload",
       "name": "Adapter Repository",
-      "contentUrl": "https://github.com/example-org/proteomics-adapter",
+      "contentUrl": "https://github.com/biocypher/collectri",
       "encodingFormat": "git+https"
     }
   ],
   "cr:data": {
     "@type": "cr:DataSpecification",
-    "cr:inputFormat": "parquet",
-    "cr:dataTypes": ["proteomics", "molecular interaction"],
+    "cr:inputFormat": "csv",
+    "cr:dataTypes": ["multi-omics"],
     "cr:dataSources": [
       {
         "@type": "DataDownload",
-        "contentUrl": "https://www.uniprot.org",
-        "license": "CC-BY-4.0"
+        "contentUrl": "https://rescued.omnipathdb.org/CollecTRI.csv",
+        "license": "composite license"
       }
     ],
     "cr:ontologies": [
       {
         "@type": "CreativeWork",
-        "name": "GO",
-        "identifier": "go"
-      },
-      {
-        "@type": "CreativeWork",
-        "name": "Chebi",
-        "identifier": "chebi"
+        "name": "biolink",
+        "identifier": "biolink"
       }
     ]
   },
   "creator": {
     "@type": "Person",
-    "name": "Edwin Carreño",
+    "name": "Sebastian Lobentanzer",
     "identifier": [
-      { "@type": "PropertyValue", "propertyID": "GitHub", "value": "edwincarreno" },
-      { "@type": "PropertyValue", "propertyID": "ORCID", "value": "0000-0002-1234-5678" }
+      { "@type": "PropertyValue", "propertyID": "GitHub", "value": "slobentanzer" },
+      { "@type": "PropertyValue", "propertyID": "ORCID", "value": "0000-0003-3399-6695" }
     ],
     "affiliation": {
       "@type": "Organization",
@@ -58,7 +53,7 @@
       "identifier": {
         "@type": "PropertyValue",
         "propertyID": "ROR",
-        "value": "https://ror.org/01bj3aw27"
+        "value": "https://ror.org/00cfam450 "
       },
       "url": "https://helmholtz-munich.de",
       "location": {
@@ -73,7 +68,7 @@
   "citation": [
     {
       "@type": "CreativeWork",
-      "identifier": "https://doi.org/10.1038/s41587-020-0456-0"
+      "identifier": "https://doi.org/10.1093/nar/gkad841"
     }
   ],
   "about": {
