@@ -1,10 +1,15 @@
 {
-  "@context": "https://w3id.org/croissant/v1",
-  "type": "BioCypherAdapter",
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
+  "@type": "Dataset",
   "name": "protein_mapper",
   "version": "0.5.1",
   "description": "Maps protein identifiers to BioCypher schema",
   "license": "BSD-3-Clause",
-  "author": "Edwin",
-  "github_repo": "https://github.com/edwin/biocypher-protein-mapper"
+  "creator": {
+    "@type": "Person",
+    "name": "Edwin"
+  },
+  "url": "https://github.com/edwin/biocypher-protein-mapper"
 }

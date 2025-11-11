@@ -21,7 +21,14 @@ def load_all_metadata():
 
 def main():
     metadata_list = load_all_metadata()
-    aggregated = {"@context": "https://w3id.org/croissant/v1", "@graph": metadata_list}
+    aggregated = {
+        "@context": {
+            "@vocab": "https://schema.org/",
+            "dct": "http://purl.org/dc/terms/",
+            "cr": "http://mlcommons.org/croissant/"
+        },
+        "@graph": metadata_list
+    }
     with open(OUTPUT_FILE, "w") as f:
         json.dump(aggregated, f, indent=2)
     print(f"Aggregated registry saved to {OUTPUT_FILE}")

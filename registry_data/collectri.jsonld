@@ -1,0 +1,87 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/"
+  },
+  "@type": "Dataset",
+  "name": "example-adapter",
+  "description": "Adapter integrating proteomics data from UniProt into a unified ontology model.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "url": "https://github.com/example-org/proteomics-adapter",
+  "keywords": ["proteomics", "ontology", "uniprot"],
+  "additionalType": "cr:Adapter",
+  "cr:adapterType": "primary",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "name": "Adapter Repository",
+      "contentUrl": "https://github.com/example-org/proteomics-adapter",
+      "encodingFormat": "git+https"
+    }
+  ],
+  "cr:data": {
+    "@type": "cr:DataSpecification",
+    "cr:inputFormat": "parquet",
+    "cr:dataTypes": ["proteomics", "molecular interaction"],
+    "cr:dataSources": [
+      {
+        "@type": "DataDownload",
+        "contentUrl": "https://www.uniprot.org",
+        "license": "CC-BY-4.0"
+      }
+    ],
+    "cr:ontologies": [
+      {
+        "@type": "CreativeWork",
+        "name": "GO",
+        "identifier": "go"
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "Chebi",
+        "identifier": "chebi"
+      }
+    ]
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "Edwin Carreño",
+    "identifier": [
+      { "@type": "PropertyValue", "propertyID": "GitHub", "value": "edwincarreno" },
+      { "@type": "PropertyValue", "propertyID": "ORCID", "value": "0000-0002-1234-5678" }
+    ],
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Helmholtz Munich",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "ROR",
+        "value": "https://ror.org/01bj3aw27"
+      },
+      "url": "https://helmholtz-munich.de",
+      "location": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "Germany"
+        }
+      }
+    }
+  },
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "identifier": "https://doi.org/10.1038/s41587-020-0456-0"
+    }
+  ],
+  "about": {
+    "@type": "Thing",
+    "name": "Bioinformatics"
+  },
+  "temporalCoverage": "2024-05-12/2025-11-10",
+  "cr:testCommand": "pytest tests/",
+  "cr:biotoolsId": "proteomics-adapter",
+  "cr:elixirNode": "de"
+}

@@ -13,3 +13,7 @@ adapters:
   ## Adapter: Omnipath Secondary Adapter
   - name: omnipath_secondary_adapter
     metadata_url: https://raw.githubusercontent.com/biocypher/omnipath-secondary-adapter/refs/heads/main/croissant.jsonld
+
+    ## Adapter: Collectri
+  - name: collectri
+    local_path: ./external_repos/adapter_collectri
