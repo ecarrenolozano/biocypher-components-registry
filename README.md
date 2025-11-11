@@ -18,3 +18,23 @@ adapters:
 `metadata_url`: Provide the direct raw URL to the Croissant metadata file (croissant.jsonld) hosted in your adapter’s GitHub repository. This URL should point to the raw file content (e.g., https://raw.githubusercontent.com/username/repo/branch/croissant.jsonld).
 
 3. That is all!
+
+
+
+### Developer
+
+1. Fetch all the registered adapters.
+   
+```bash
+python scripts/fetch_adapters.py
+```
+
+2. Generate a unified Croissant file containing all the adapters (registed).
+```bash
+python scripts/generate_registry.py
+```
+
+3. Validate unified Croissant file
+```bash
+mlcroissant validate --jsonld unified_adapters_metadata.jsonld
+```
